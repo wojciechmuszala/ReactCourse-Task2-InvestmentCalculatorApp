@@ -1,4 +1,4 @@
-export default function UserInput({ onCollectInputValue }) {
+export default function UserInput({ onCollectInputValue, userInputValues }) {
   return (
     <section id='user-input'>
       <div className='input-group'>
@@ -10,6 +10,7 @@ export default function UserInput({ onCollectInputValue }) {
             onInput={(event) =>
               onCollectInputValue("initialInvestment", event.target.value)
             }
+            value={userInputValues.initialInvestment}
             required
           />
         </p>
@@ -19,8 +20,9 @@ export default function UserInput({ onCollectInputValue }) {
             id='annual-investiment'
             type='number'
             onInput={(event) =>
-              onCollectInputValue("annualInvestiment", event.target.value)
+              onCollectInputValue("annualInvestment", event.target.value)
             }
+            value={userInputValues.annualInvestment}
             required
           />
         </p>
@@ -34,6 +36,7 @@ export default function UserInput({ onCollectInputValue }) {
             onInput={(event) =>
               onCollectInputValue("expectedReturn", event.target.value)
             }
+            value={userInputValues.expectedReturn}
             required
           />
         </p>
@@ -45,6 +48,7 @@ export default function UserInput({ onCollectInputValue }) {
             onInput={(event) =>
               onCollectInputValue("duration", event.target.value)
             }
+            value={userInputValues.duration}
             required
           />
         </p>

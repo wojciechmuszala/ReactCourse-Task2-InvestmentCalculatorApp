@@ -5,7 +5,12 @@ import UserInput from "./components/UserInput";
 import Result from "./components/Result";
 
 function App() {
-  const [userInputValues, setUserInputValues] = useState(null);
+  const [userInputValues, setUserInputValues] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
+  });
 
   const collectUserInputValues = (id, value) => {
     setUserInputValues((prevInputValues) => ({
@@ -29,7 +34,10 @@ function App() {
             </ul>
           )}
         </div>
-        <UserInput onCollectInputValue={collectUserInputValues} />
+        <UserInput
+          userInputValues={userInputValues}
+          onCollectInputValue={collectUserInputValues}
+        />
         <Result />
       </main>
     </>
