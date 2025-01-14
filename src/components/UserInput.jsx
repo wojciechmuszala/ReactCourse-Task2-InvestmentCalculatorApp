@@ -7,7 +7,10 @@ export default function UserInput({ onCollectInputValue }) {
           <input
             id='initial-investment'
             type='number'
-            onInput={onCollectInputValue}
+            onInput={(event) =>
+              onCollectInputValue("initialInvestment", event.target.value)
+            }
+            required
           />
         </p>
         <p>
@@ -15,7 +18,10 @@ export default function UserInput({ onCollectInputValue }) {
           <input
             id='annual-investiment'
             type='number'
-            onInput={onCollectInputValue}
+            onInput={(event) =>
+              onCollectInputValue("annualInvestiment", event.target.value)
+            }
+            required
           />
         </p>
       </div>
@@ -25,12 +31,22 @@ export default function UserInput({ onCollectInputValue }) {
           <input
             id='expected-return'
             type='number'
-            onInput={onCollectInputValue}
+            onInput={(event) =>
+              onCollectInputValue("expectedReturn", event.target.value)
+            }
+            required
           />
         </p>
         <p>
           <label htmlFor='duration'>Duration</label>
-          <input id='duration' type='number' onInput={onCollectInputValue} />
+          <input
+            id='duration'
+            type='number'
+            onInput={(event) =>
+              onCollectInputValue("duration", event.target.value)
+            }
+            required
+          />
         </p>
       </div>
     </section>

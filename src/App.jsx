@@ -7,8 +7,7 @@ import Result from "./components/Result";
 function App() {
   const [userInputValues, setUserInputValues] = useState(null);
 
-  const collectUserInputValues = (event) => {
-    const { id, value } = event.target;
+  const collectUserInputValues = (id, value) => {
     setUserInputValues((prevInputValues) => ({
       ...prevInputValues,
       [id]: value,
