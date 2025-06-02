@@ -1,4 +1,4 @@
-export default function UserInput({ onCollectInputValue, userInputValues }) {
+const UserInput = ({ onCollectInputValue, userInputValues }) => {
   return (
     <section id='user-input'>
       <div className='input-group'>
@@ -55,4 +55,6 @@ export default function UserInput({ onCollectInputValue, userInputValues }) {
       </div>
     </section>
   );
-}
+};
+
+export default UserInput;

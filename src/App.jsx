@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
-import Result from "./components/Result";
+import Results from "./components/Results";
 
-function App() {
+const App = () => {
   const [userInputValues, setUserInputValues] = useState({
     initialInvestment: 10000,
     annualInvestment: 1200,
@@ -12,10 +12,12 @@ function App() {
     duration: 10,
   });
 
-  const collectUserInputValues = (id, value) => {
+  const inputIsValid = userInputValues.duration >= 1;
+
+  const collectUserInputValues = (inputId, inputValue) => {
     setUserInputValues((prevInputValues) => ({
       ...prevInputValues,
-      [id]: value,
+      [inputId]: +inputValue,
     }));
   };
 
@@ -23,25 +25,18 @@ function App() {
     <>
       <Header />
       <main>
-        <div className='test'>
-          {userInputValues && (
-            <ul>
-              {Object.entries(userInputValues).map(([key, value]) => (
-                <li key={key}>
-                  {key}: {value}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
         <UserInput
           userInputValues={userInputValues}
           onCollectInputValue={collectUserInputValues}
         />
-        <Result />
+        {inputIsValid ? (
+          <Results userInputValues={userInputValues} />
+        ) : (
+          <p className='center'>Please enter a duration greater then zero.</p>
+        )}
       </main>
     </>
   );
-}
+};
 
 export default App;
